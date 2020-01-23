@@ -1,3 +1,7 @@
+# lightweight Eventlite application
+
+Rails 6 application with React webpack
+
 # README
 
 This README would normally document whatever steps are necessary to get the
