@@ -6,21 +6,37 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
-const Hello = props => (
-  <div>Hello {props.name}!</div>
-)
 
-Hello.defaultProps = {
-  name: 'David'
+class Hello extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      name: 'World'
+    }
+  }
+
+  changeName = (e) => {
+    this.setState({
+      name: e.target.value
+    })
+  }
+
+  
+  render (){
+    return (
+    <div>
+      <form>
+        <input onChange={this.changeName} value={this.state.name} />
+      </form>
+      <div>Hello {this.state.name}!</div>
+    </div>
+    )
+  }
 }
 
-Hello.propTypes = {
-  name: PropTypes.string
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <Hello name="React" />,
-    document.body.appendChild(document.createElement('div')),
-  )
-})
+// document.addEventListener('DOMContentLoaded', () => {
+//   ReactDOM.render(
+//     <Hello  />,
+//     document.body.appendChild(document.createElement('div')),
+//   )
+// })
